@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
+//overlapping text issue
+//https://github.com/flutter/flutter/issues/14227
+
 class OverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("My App Bar")),
         body: CustomScrollView(slivers: [
           SliverAppBar(
             expandedHeight: 100,
             title: Text(
-                'Sliver App Bar - hides on scroll'),
+                'Sliver App Bar'),
+            flexibleSpace: FlexibleSpaceBar(title: Text('hides on scroll')),
             floating: true,
-            pinned: false,
+            pinned: true,
             snap: true,
           ),
           SliverFillRemaining(
